@@ -18,4 +18,4 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('courses02.urls'))]
+    path('', include('advertisement.urls'))]
