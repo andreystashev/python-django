@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Объявления</title>
+</head>
+<body>
+
+<nav>
+    <ul>
+        <li><a href="/about">О компании</a></li>
+        <li><a href="/contacts">Контакты</a></li>
+        <li><a href="/categories">Категории объявлений</a></li>
+        <li><a href="/regions">Регионы</a></li>
+        <li><a href="/advertisements">Объявления</a></li>
+    </ul>
+</nav>
+
+<h2>Объявления</h2>
+<h3>Услуги</h3>
+    <ul>
+    {% for advertisement in service_advertisements %}
+        <li>{{ advertisement }}</li>
+    {% endfor %}
+    </ul>
+
+<h3>Авто</h3>
+    <ul>
+    {% for advertisement in car_advertisements %}
+        <li>{{ advertisement }}</li>
+    {% endfor %}
+    </ul>
+
+<h3>Электроника</h3>
+    <ul>
+    {% for advertisement in electronic_advertisements %}
+        <li>{{ advertisement }}</li>
+    {% endfor %}
+    </ul>
+
+    <form  method="post">
+        {% csrf_token %}
+        <p><button type="submit">Найти</button></p>
+        <h3>{{ choice_message }}</h3>
+    </form>
+
+<p><a href="/">Главная</a></p>
+
+</body>
+</html>

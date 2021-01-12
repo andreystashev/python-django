@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Объявления</title>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="/about">О компании</a></li>
+            <li><a href="/contacts">Контакты</a></li>
+            <li><a href="/categories">Категории объявлений</a></li>
+            <li><a href="/regions">Регионы</a></li>
+            <li><a href="/advertisements">Объявления</a></li>
+        </ul>
+    </nav>
+
+    <form  method="post">
+        {% csrf_token %}
+
+        <table>
+            {{ choice_form.as_table }}
+        </table>
+
+{#        <p>Выберите регион</p>#}
+{#        <label>#}
+{#            <select>#}
+{#                {% for regions in choice_form.region %}#}
+{#                  <option>{{ regions }}</option>#}
+{#                {% endfor %}#}
+{#            </select>#}
+{#        </label>#}
+
+        <p><button type="submit">Найти</button></p>
+    </form>
+
+    <p>Выполнено запросов {{ post_count }}</p>
+    <h3>{{ choice_message }}</h3>
+
+</body>
+</html>
