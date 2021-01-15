@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавдение записей</title>
+</head>
+<body>
+<p><a href="/">Главная</a></p>
+<form method="post">
+    {% csrf_token %}
+    Введите количество записей
+    <p>{{ count_form.counter }}</p>
+    <p>
+        <button type="submit">Добавить</button>
+    </p>
+</form>
+
+<h1>{{ message }}</h1>
+</body>
+</html>

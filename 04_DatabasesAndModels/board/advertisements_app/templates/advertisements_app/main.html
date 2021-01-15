@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Объявления</title>
+</head>
+<body>
+
+<p><a href="/random">Случайное объявление</a></p>
+<p><a href="/advertisements">Объявления со ссылками</a></p>
+<p><a href="/fill_db">Добавить записей в БД</a></p>
+
+<h1>Объявления</h1>
+
+{% if advertisements %}
+<ul>
+    {% for advertisement in advertisements %}
+    <li>
+        <h4>
+            {{ advertisement.advertisement_heading }} {{ advertisement.advertisement_type }}
+        </h4>
+        <p>
+            {{ advertisement.title }} (Цена: {{ advertisement.price }}) руб.
+        </p>
+        <p>
+            Дата создания: {{ advertisement.created_at }}
+        </p>
+        <p>
+            Автор {{ advertisement.advertisement_author.first_name }} {{ advertisement.advertisement_author.last_name }}
+        </p>
+        <p>
+            {{ advertisement.advertisement_author.email }}
+        </p>
+        <p>
+            {{ advertisement.advertisement_author.phone }}
+        </p>
+        <p>
+            количество просмотров: {{ advertisement.views_count }}
+        </p></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Объявлений нет</p>
+{% endif %}
+
+</body>
+</html>

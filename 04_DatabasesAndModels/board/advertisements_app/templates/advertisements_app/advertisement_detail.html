@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ object.title }}</title>
+</head>
+<body>
+<p><a href="/">Главная</a></p>
+
+<h1>{{ object.title }}</h1>
+<ul>
+    <li><p>Цена: {{ object.price }}</p></li>
+    <li><p>{{ object.description }}</p></li>
+    <li><h3>{{ object.advertisement_heading }} {{ object.advertisement_type }}</h3></li>
+    <li><p>{{ object.advertisement_author.first_name }} {{ object.advertisement_author.last_name }}</p></li>
+    <li><p>{{ object.advertisement_author.email }}</p></li>
+    <li><p>{{ object.advertisement_author.phone }}</p></li>
+    <li><p>Просмотров: {{ object.views_count }}</p></li>
+    </li>
+</ul>
+
+</body>
+</html>
