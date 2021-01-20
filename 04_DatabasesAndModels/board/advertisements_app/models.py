@@ -8,11 +8,11 @@ class Advertisement(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, db_index=True)
     finish_at = models.DateTimeField(auto_now=True)
     views_count = models.IntegerField(default=0, verbose_name='Количество просмотров')
-    advertisement_heading = models.ForeignKey('Heading', default=None, null=True, on_delete=models.CASCADE,
+    advertisement_heading = models.ForeignKey('Heading', default=3, null=True, on_delete=models.CASCADE,
                                               related_name='ad_status')
-    advertisement_type = models.ForeignKey('Type', default=None, null=True, on_delete=models.CASCADE,
+    advertisement_type = models.ForeignKey('Type', default=2, null=True, on_delete=models.CASCADE,
                                            related_name='ad_type')
-    advertisement_author = models.ForeignKey('Author', default=None, null=True, on_delete=models.CASCADE,
+    advertisement_author = models.ForeignKey('Author', default=1, null=True, on_delete=models.CASCADE,
                                              related_name='ad_author')
 
     def __str__(self):

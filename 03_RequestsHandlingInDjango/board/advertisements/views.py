@@ -4,6 +4,12 @@ from django.views.generic import TemplateView
 from .forms import ChoiceForm, AdvertisementForm
 from .settings import SERVICE_ADVERTISEMENTS, CAR_ADVERTISEMENTS, ELECTRONIC_ADVERTISEMENTS, CATEGORIES_LIST, \
     REGION_LIST
+from .models import Advertisement
+
+
+def advertisement_list(request, *args, **kwargs):
+    advertisements = Advertisement.objects.all()
+    return render(request, 'advertisements.advertisements.html', {'advertisements': advertisements})
 
 
 class Count:
@@ -93,5 +99,3 @@ class Advertisements(View):
                    'message': message
                    }
         return render(request, 'advertisements/advertisements.html', context)
-
-

@@ -25,7 +25,7 @@ class AdsListView(ListView):
     model = Advertisement
     template_name = 'advertisements.html'
     context_object_name = 'advertisements'
-    queryset = Advertisement.objects.all()[:5]
+    queryset = Advertisement.objects.all()
 
 
 class AdsDetailView(DetailView):
@@ -45,8 +45,8 @@ class FillDB(View):
         if count_form.is_valid():
             count = count_form.cleaned_data['counter']
             for i in range(0, count):
-                new_advertisement = Advertisement(title='Объявление ' + str(i),
-                                                  description='Текст объявления' + str(i),
+                new_advertisement = Advertisement(title= f'Объявление {i}',
+                                                  description=f'Текст объявления {i}',
                                                   price=i,
                                                   created_at=datetime.datetime.now(),
                                                   finish_at=datetime.datetime.now() + datetime.timedelta(weeks=5),
