@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Комментарий</title>
+</head>
+<body>
+    <p><a href="/">Главная</a></p>
+
+    <h1>{{ comment.title }}</h1>
+
+    <form  method="post">
+        {% csrf_token %}
+{#        {{ form.as_p }}#}
+        <p>Комментарий: {{ form.comment }}</p>
+        <p>Имя пользователя: {{ form.user_name }}</p>
+
+        <p><button type="submit">Сохранить</button></p>
+    </form>
+
+</body>
+</html>
