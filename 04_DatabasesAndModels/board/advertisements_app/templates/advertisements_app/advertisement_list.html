@@ -15,7 +15,10 @@
     {% for advertisement in advertisements %}
     <li>
         <p>
-            <a href="/advertisements/{{ advertisement.id }}"><li>{{ advertisement.title }} Цена:{{ advertisement.price }}</li> {{ advertisement.advertisement_heading }}<li>{{ advertisement.advertisement_type }}</li> </a>
+            <a href="/advertisements/{{ advertisement.id }}">
+                <li>{{ advertisement.title }} Цена:{{ advertisement.price }}</li>
+                {{ advertisement.advertisement_heading }}<li>{{ advertisement.advertisement_type }}</li>
+            </a>
         </p>
     </li>
     {% endfor %}
