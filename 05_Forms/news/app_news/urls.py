@@ -1,5 +1,4 @@
-from django.urls import path, include
-from django.conf import settings
+from django.urls import path
 from . import views
 
 urlpatterns = [
@@ -9,10 +8,6 @@ urlpatterns = [
     path('edit_news/', views.AddNewsView.as_view(), name='AddNewsView'),
     path('edit_news/<int:pk>', views.EditNewsView.as_view(), name='EditNewsView'),
     path('newsitems/<int:pk>/add_comment', views.AddNewsComment.as_view(), name='AddNewsComment'),
-    # path('login/', views.UserLoginView.as_view(), name='login'),
-    # path('logout/', views.UserLogoutView.as_view(), name='logout'),
+
 ]
 
-# if settings.DEBUG:
-#     import debug_toolbar
-#     urlpatterns += path('__debug__/', include(debug_toolbar.urls)),
