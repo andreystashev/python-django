@@ -6,10 +6,17 @@
 </head>
 <body>
 
+{% if user.is_authenticated %}
+    Добро пожаловать, {{ user.username }} | <a href="{% url 'logout' %}">Logout</a>
+{% else %}
+    <a href="{% url 'login' %}">Login</a>
+{% endif %}
+
 <p><a href="{% url 'AddNewsView' %}">Добавить новость</a></p>
 
 <h1>Новости</h1>
 
+{% if newsitems %}
     <ul>
         {% for newsitem in newsitems %}
             {% if newsitem.is_active %}
@@ -29,6 +36,9 @@
             {% endif %}
         {% endfor %}
     </ul>
+{% else %}
+    <p>Новостей нет</p>
+{% endif %}
 
 </body>
 </html>

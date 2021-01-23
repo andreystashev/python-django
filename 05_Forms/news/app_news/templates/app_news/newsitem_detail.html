@@ -17,7 +17,11 @@
 <ul>
     {% for comment in  newsitem.news_link.all %}
         <li><p>Комментарий: {{ comment.comment }}</p></li>
-        <p>Автор комментария: {{ comment.user_name }}</p>
+        <p><i>Автор комментария: {{ comment.user_name }}
+        {% if not comment.user %}
+                ( аноним )
+        {% endif %}
+        </i></p>
     {% endfor %}
 </ul>
 

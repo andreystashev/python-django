@@ -24,3 +24,7 @@ class AddComment(forms.ModelForm):
             'comment': forms.Textarea(attrs={'label': 'Комментарий '}),
             'user_name': forms.TextInput(attrs={'label': 'Имя пользователя '}),
         }
+
+class AuthForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField(widget=forms.PasswordInput)

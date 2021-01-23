@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView, UpdateView, CreateView
 
 from .forms import EditNews, AddComment
 from .models import NewsItem, Comment
+from django.contrib.auth.views import LoginView, LogoutView
 
 
 class NewsListView(ListView):
@@ -40,10 +41,24 @@ class AddNewsComment(CreateView):
     form_class = AddComment
 
     def form_valid(self, form):
-        save_user_name = form.cleaned_data['user_name']
+        if self.request.user.is_authenticated:
+            save_user = self.request.user
+            save_user_name = self.request.user.username
+        else:
+            save_user = None
+            save_user_name = form.cleaned_data['user_name']
         save_comment = Comment(user_name=save_user_name,
                                comment=form.cleaned_data['comment'],
                                news_fk_id=self.kwargs['pk'],
+                               user=save_user
                                )
         save_comment.save()
         return HttpResponseRedirect(reverse('NewsDetailView', args=[self.kwargs['pk']]))
+
+
+class UserLoginView(LoginView):
+    template_name = 'users/login.html'
+
+
+class UserLogoutView(LogoutView):
+    template_name = 'users/logout.html'
